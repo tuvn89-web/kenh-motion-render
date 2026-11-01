@@ -148,7 +148,6 @@ jobs:
     needs: [plan, render]
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ needs.plan.outputs.tag }}
       GH_TOKEN: ${{ secrets.KHO_TOKEN }}
     steps:
       - name: Lấy file việc từ kho riêng
@@ -166,6 +165,8 @@ jobs:
           J="_kho/cloud/jobs/$JOB_NAME"
           OUT=$(jq -r '.out' "$J"); echo "::add-mask::$OUT"
           echo "OUT=$OUT" >> "$GITHUB_ENV"
+          # GitHub bỏ output nào chứa giá trị bị che, nên tag tính lại ở đây (cùng công thức với bước Chuẩn bị)
+          echo "TAG=kq-$OUT-c${{ github.run_number }}" >> "$GITHUB_ENV"
           echo "ASSETS=$(jq -r '.assets // empty' "$J")" >> "$GITHUB_ENV"
           echo "AUDIO=$(jq -r '.audio // empty' "$J")" >> "$GITHUB_ENV"
       - name: Lấy file tiếng
