@@ -1,0 +1,225 @@
+# Render song song trên máy GitHub (repo công khai → không giới hạn phút).
+# Nội dung tập (ảnh, tiếng, bảng cảnh, file việc) nằm ở repo RIÊNG TƯ tuvn89-web/kenh-motion, lấy bằng secret KHO_TOKEN.
+# Đoạn trung gian được mã hoá bằng secret MAT_KHAU; video cuối đẩy về Releases của repo riêng tư; artifacts ở đây bị xoá.
+# Chạy: Actions → "Render" → Run workflow → nhập tên file việc trong cloud/jobs/ (nhánh render-may của repo riêng tư).
+name: Render
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Tên file việc (vd ma-tap-720p.json)"
+        required: true
+      parts:
+        description: "Số đoạn song song (để trống = theo file việc, tối đa 20)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+env:
+  KHO: tuvn89-web/kenh-motion
+  KHO_REF: render-may
+
+jobs:
+  plan:
+    name: Chuẩn bị
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.p.outputs.matrix }}
+      tag: ${{ steps.p.outputs.tag }}
+    steps:
+      - name: Lấy file việc từ kho riêng
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.KHO }}
+          ref: ${{ env.KHO_REF }}
+          token: ${{ secrets.KHO_TOKEN }}
+          path: _kho
+          sparse-checkout: cloud/jobs
+      - id: p
+        name: Đọc file việc, mở kho kết quả
+        env:
+          GH_TOKEN: ${{ secrets.KHO_TOKEN }}
+          JOB_NAME: ${{ inputs.job }}
+          PARTS_IN: ${{ inputs.parts }}
+        run: |
+          J="_kho/cloud/jobs/$JOB_NAME"
+          [ -f "$J" ] || { echo "::error::Không thấy file việc"; exit 1; }
+          OUT=$(jq -r '.out' "$J"); echo "::add-mask::$OUT"
+          jq -e '.project and .composition and .out' "$J" >/dev/null || { echo "::error::File việc thiếu project / composition / out"; exit 1; }
+          N=${PARTS_IN:-$(jq -r '.parts // 8' "$J")}
+          [ "$N" -gt 20 ] && N=20
+          TAG="kq-$OUT-c${{ github.run_number }}"
+          echo "matrix=$(jq -cn --argjson n "$N" '[range(0;$n)]')" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          gh release create "$TAG" -R "$KHO" --target "$KHO_REF" --prerelease \
+            --title "Render $OUT (công khai, lần ${{ github.run_number }})" --notes "Đang render: $N đoạn song song." >/dev/null
+          echo "Số đoạn: $N"
+
+  render:
+    name: Đoạn ${{ matrix.part }}
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: true
+      max-parallel: 20
+      matrix:
+        part: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - name: Lấy code lõi
+        uses: actions/checkout@v4
+      - name: Lấy phần nội dung tập từ kho riêng
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.KHO }}
+          ref: ${{ env.KHO_REF }}
+          token: ${{ secrets.KHO_TOKEN }}
+          path: _kho
+      - name: Ghép nội dung tập vào code lõi
+        env:
+          JOB_NAME: ${{ inputs.job }}
+        run: |
+          shopt -s nullglob globstar
+          while IFS= read -r p; do
+            [[ -z "$p" || "$p" == \#* ]] && continue
+            ( cd _kho && for f in $p; do cp -r --parents "$f" "$GITHUB_WORKSPACE/"; done ) 2>/dev/null || true
+          done < cloud/rieng-tu.txt
+          J="cloud/jobs/$JOB_NAME"
+          echo "::add-mask::$(jq -r '.out' "$J")"
+          echo "JOB=$J" >> "$GITHUB_ENV"
+          echo "PROJECT=$(jq -r '.project' "$J")" >> "$GITHUB_ENV"
+          echo "ASSETS=$(jq -r '.assets // empty' "$J")" >> "$GITHUB_ENV"
+          echo "ASSETS_DIR=$(jq -r '.assets_dir // "public"' "$J")" >> "$GITHUB_ENV"
+      - name: Lấy ảnh của tập
+        if: env.ASSETS != ''
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.KHO }}
+          ref: ${{ env.ASSETS }}
+          token: ${{ secrets.KHO_TOKEN }}
+          path: _assets
+      - name: Đặt ảnh vào project
+        if: env.ASSETS != ''
+        run: |
+          rm -rf _assets/.git
+          mkdir -p "$PROJECT/$ASSETS_DIR"
+          cp -r _assets/. "$PROJECT/$ASSETS_DIR/"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ${{ env.PROJECT }}/package-lock.json
+      - name: Cài thư viện
+        working-directory: ${{ env.PROJECT }}
+        run: npm ci --no-audit --no-fund
+      - name: Render
+        run: |
+          J=$(jq --argjson n "$(jq -n '${{ needs.plan.outputs.matrix }} | length')" '.parts=$n' "$JOB")
+          echo "$J" > "$RUNNER_TEMP/job.json"
+          cp cloud/render_part.mjs "$PROJECT/_ci_render_part.mjs"
+          cd "$PROJECT"
+          JOB_FILE="$RUNNER_TEMP/job.json" PART="${{ matrix.part }}" OUT_DIR="$GITHUB_WORKSPACE/_parts" node _ci_render_part.mjs
+      - name: Mã hoá đoạn
+        env:
+          MAT_KHAU: ${{ secrets.MAT_KHAU }}
+        run: |
+          shopt -s nullglob
+          mkdir -p _enc
+          for f in _parts/part-*.mp4; do
+            openssl enc -aes-256-cbc -pbkdf2 -salt -pass env:MAT_KHAU -in "$f" -out "_enc/$(basename "$f").enc"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.part }}
+          path: _enc/
+          retention-days: 1
+          if-no-files-found: ignore
+
+  join:
+    name: Ghép + tiếng
+    needs: [plan, render]
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ needs.plan.outputs.tag }}
+      GH_TOKEN: ${{ secrets.KHO_TOKEN }}
+    steps:
+      - name: Lấy file việc từ kho riêng
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.KHO }}
+          ref: ${{ env.KHO_REF }}
+          token: ${{ secrets.KHO_TOKEN }}
+          path: _kho
+          sparse-checkout: cloud/jobs
+      - name: Đọc file việc
+        env:
+          JOB_NAME: ${{ inputs.job }}
+        run: |
+          J="_kho/cloud/jobs/$JOB_NAME"
+          OUT=$(jq -r '.out' "$J"); echo "::add-mask::$OUT"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          echo "ASSETS=$(jq -r '.assets // empty' "$J")" >> "$GITHUB_ENV"
+          echo "AUDIO=$(jq -r '.audio // empty' "$J")" >> "$GITHUB_ENV"
+      - name: Lấy file tiếng
+        if: env.ASSETS != '' && env.AUDIO != ''
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.KHO }}
+          ref: ${{ env.ASSETS }}
+          token: ${{ secrets.KHO_TOKEN }}
+          path: _assets
+          sparse-checkout: ${{ env.AUDIO }}
+          sparse-checkout-cone-mode: false
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: part-*
+          path: _enc
+          merge-multiple: true
+      - name: Giải mã, ghép, đẩy về kho riêng
+        env:
+          MAT_KHAU: ${{ secrets.MAT_KHAU }}
+        run: |
+          command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          mkdir -p _parts _s
+          for f in _enc/*.enc; do
+            openssl enc -d -aes-256-cbc -pbkdf2 -pass env:MAT_KHAU -in "$f" -out "_parts/$(basename "$f" .enc)"
+          done
+          ls _parts | sort | sed "s#^#file '$PWD/_parts/#; s#\$#'#" > list.txt
+          ffmpeg -v error -y -f concat -safe 0 -i list.txt -c copy video.mp4
+          if [ -n "$AUDIO" ]; then
+            ffmpeg -v error -y -i video.mp4 -i "_assets/$AUDIO" -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT.mp4"
+          else
+            ffmpeg -v error -y -i video.mp4 -c copy -movflags +faststart "$OUT.mp4"
+          fi
+          D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT.mp4")
+          for i in $(seq 0 23); do
+            t=$(awk -v d="$D" -v i="$i" 'BEGIN{print d*(i+0.5)/24}')
+            ffmpeg -v error -y -ss "$t" -i "$OUT.mp4" -frames:v 1 -vf scale=320:-1 "_s/$(printf %02d "$i").jpg"
+          done
+          ffmpeg -v error -y -pattern_type glob -i '_s/*.jpg' -vf tile=6x4 "$OUT.sheet.jpg"
+          gh release upload "$TAG" -R "$KHO" "$OUT.mp4" "$OUT.sheet.jpg" --clobber >/dev/null
+          gh release edit "$TAG" -R "$KHO" --notes "Xong: $OUT.mp4 — $(du -h "$OUT.mp4" | cut -f1), $(printf '%.1f' "$D") s. Render trên repo công khai, lần ${{ github.run_number }}." >/dev/null
+          echo "Xong, thời lượng $(printf '%.1f' "$D") s"
+
+  don-dep:
+    name: Xoá dấu vết
+    needs: [plan, render, join]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Xoá artifacts của lần chạy này
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for id in $(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" -q '.artifacts[].id'); do
+            gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id"
+          done
+          echo "Đã xoá artifacts"

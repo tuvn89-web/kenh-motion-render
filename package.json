@@ -1,0 +1,31 @@
+{
+  "name": "kenh-motion",
+  "version": "1.0.0",
+  "description": "Whiteboard stick-figure videos from code (Remotion)",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "node scripts/render.mjs",
+    "still": "node scripts/still.mjs",
+    "align": "node scripts/align.mjs",
+    "from-11labs": "node scripts/from-elevenlabs.mjs",
+    "check": "tsc -p ."
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.1.2",
+    "@react-three/postprocessing": "3.0.4",
+    "@remotion/cli": "4.0.538",
+    "@remotion/install-whisper-cpp": "4.0.538",
+    "@remotion/media-utils": "4.0.538",
+    "@remotion/motion-blur": "^4.0.538",
+    "@remotion/three": "^4.0.538",
+    "@types/react": "^19.3.0",
+    "@types/three": "^0.170.0",
+    "postprocessing": "6.37.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "4.0.538",
+    "three": "^0.170.0",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}

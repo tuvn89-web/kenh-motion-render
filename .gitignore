@@ -1,0 +1,17 @@
+node_modules/
+out/
+*.mp4
+*.wav
+*.mp3
+public/kits/
+public/assets/sfx/
+public/assets/art/
+public/assets/models/
+public/assets/LICENSES.json
+public/_qa/
+public/sfx/
+public/episodes/*/voice*
+VERSION.txt
+scripts_ac1.txt
+__pycache__/
+*.pyc

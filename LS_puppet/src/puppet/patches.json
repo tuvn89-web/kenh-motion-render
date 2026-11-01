@@ -1,0 +1,124 @@
+{
+ "SPR_HAST_SCARED": {
+  "blink": {
+   "src": "PAT_SPR_HAST_SCARED_blink",
+   "x": 0.33794,
+   "y": 0.39612,
+   "w": 0.31407,
+   "h": 0.06326
+  }
+ },
+ "SPR_HAST_ASK": {
+  "shut": {
+   "src": "PAT_SPR_HAST_ASK_shut",
+   "x": 0.49726,
+   "y": 0.37718,
+   "w": 0.28904,
+   "h": 0.14172
+  }
+ },
+ "SPR_HAST_DEADPAN": {
+  "talk": {
+   "src": "PAT_SPR_HAST_DEADPAN_talk",
+   "x": 0.50739,
+   "y": 0.47598,
+   "w": 0.1133,
+   "h": 0.05617
+  }
+ },
+ "SPR_HANN_STAND": {
+  "blink": {
+   "src": "PAT_SPR_HANN_STAND_blink",
+   "x": 0.5815,
+   "y": 0.26019,
+   "w": 0.17555,
+   "h": 0.06375
+  }
+ },
+ "SPR_FLAM_POINT": {
+  "blink": {
+   "src": "PAT_SPR_FLAM_POINT_blink",
+   "x": 0.47955,
+   "y": 0.2986,
+   "w": 0.19223,
+   "h": 0.08647
+  },
+  "shut": {
+   "src": "PAT_SPR_FLAM_POINT_shut",
+   "x": 0.47955,
+   "y": 0.30155,
+   "w": 0.19325,
+   "h": 0.19808
+  }
+ },
+ "SPR_HANN_ARMS": {
+  "blink": {
+   "src": "PAT_SPR_HANN_ARMS_blink",
+   "x": 0.58621,
+   "y": 0.26019,
+   "w": 0.17398,
+   "h": 0.06375
+  }
+ },
+ "SPR_FLAM_ORDER": {
+  "blink": {
+   "src": "PAT_SPR_FLAM_ORDER_blink",
+   "x": 0.02397,
+   "y": 0.29786,
+   "w": 0.76712,
+   "h": 0.08721
+  }
+ },
+ "SPR_SIGN_SCARED": {
+  "blink": {
+   "src": "PAT_SPR_SIGN_SCARED_blink",
+   "x": 0.3627,
+   "y": 0.2878,
+   "w": 0.46339,
+   "h": 0.19942
+  }
+ },
+ "SPR_LEGF_SCARED": {
+  "blink": {
+   "src": "PAT_SPR_LEGF_SCARED_blink",
+   "x": 0.27037,
+   "y": 0.38869,
+   "w": 0.30247,
+   "h": 0.06657
+  }
+ },
+ "CU_FLAM_SHOUT": {
+  "shut": {
+   "src": "PAT_CU_FLAM_SHOUT_shut",
+   "x": 0.50476,
+   "y": 0.44163,
+   "w": 0.3631,
+   "h": 0.27286
+  },
+  "blink": {
+   "src": "PAT_CU_FLAM_SHOUT_blink",
+   "x": 0.50357,
+   "y": 0.49367,
+   "w": 0.35119,
+   "h": 0.05977
+  }
+ },
+ "CU_HANN_SMIRK": {
+  "blink": {
+   "src": "PAT_CU_HANN_SMIRK_blink",
+   "x": 0.68147,
+   "y": 0.39822,
+   "w": 0.12355,
+   "h": 0.09178
+  }
+ },
+ "CU_HAST_HORN": {
+  "blink": {
+   "src": "PAT_CU_HAST_HORN_blink",
+   "x": 0.21782,
+   "y": 0.1125,
+   "w": 0.64604,
+   "h": 0.50461
+  }
+ }
+}

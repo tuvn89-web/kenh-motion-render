@@ -1,0 +1,176 @@
+{
+ "via": {
+  "SPR_FLAM_ORDER>SPR_FLAM_POINT": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_FLAMPT_1",
+     "r": 1.0,
+     "dx": 0.0
+    },
+    {
+     "n": "IBT_FLAMPT_2",
+     "r": 1.0007,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_HANN_STAND>SPR_HANN_ARMS": {
+   "hold": 3,
+   "frames": [
+    {
+     "n": "IBT_HANNAR_1",
+     "r": 1.0,
+     "dx": 0.0
+    },
+    {
+     "n": "IBT_HANNAR_2",
+     "r": 1.0007,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_HAST_SCARED>SPR_HAST_HEAD": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_HASTHD_1",
+     "r": 0.9993,
+     "dx": 0.0
+    },
+    {
+     "n": "IBT_HASTHD_2",
+     "r": 1.0,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_FLAM_HORSE>SPR_FLAM_REAR": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_FLAMRR_1",
+     "r": 0.9943,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_HAST_STAND>SPR_HAST_LISTEN": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_HASTLS_1",
+     "r": 1.0015,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_HAST_SCARED>SPR_HAST_POINT": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_HASTPT_1",
+     "r": 0.9726,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_FLAM_TROT>SPR_FLAM_CHASE": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_FLAMCH_1",
+     "r": 1.0,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_GAUL_PRONE>SPR_GAUL_PPOINT": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_GAULPT_1",
+     "r": 1.0,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_FLAM_LYING>SPR_FLAM_SITUP": {
+   "hold": 3,
+   "frames": [
+    {
+     "n": "IBT_FLAMSU_1",
+     "r": 1.5909,
+     "dx": -0.3046
+    },
+    {
+     "n": "IBT_FLAMSU_2",
+     "r": 1.6297,
+     "dx": -0.2785
+    }
+   ]
+  },
+  "SPR_HAST_SCARED>SPR_HAST_ASK": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_HASTAK_1",
+     "r": 0.9993,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_HAST_SCARED>SPR_HAST_DEADPAN": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_HASTDP_1",
+     "r": 0.9993,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_HAST_STAND>SPR_HAST_SCARED": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_HASTSC_1",
+     "r": 0.9985,
+     "dx": 0.0
+    }
+   ]
+  },
+  "SPR_SIGN_STAND>SPR_SIGN_SCARED": {
+   "hold": 2,
+   "frames": [
+    {
+     "n": "IBT_SIGNSC_1",
+     "r": 1.0,
+     "dx": 0.0
+    }
+   ]
+  }
+ },
+ "turn": {
+  "SPR_HAST_SCARED": {
+   "n": "SPR_HAST_FRONTSC",
+   "r": 0.9993,
+   "dx": 0.0
+  },
+  "SPR_HAST_STAND": {
+   "n": "SPR_HAST_FRONTSC",
+   "r": 0.9993,
+   "dx": 0.0
+  },
+  "SPR_HAST_ASK": {
+   "n": "SPR_HAST_FRONTSC",
+   "r": 0.9993,
+   "dx": 0.0
+  },
+  "SPR_HAST_FIGHT": {
+   "n": "SPR_HAST_FRONTFT",
+   "r": 1.0,
+   "dx": 0.0
+  }
+ }
+}

@@ -1,0 +1,53 @@
+# Đường dẫn NỘI DUNG TẬP — không đưa lên repo công khai kenh-motion-render.
+# Lúc render, workflow lấy các đường này từ repo riêng tư kenh-motion (nhánh render-may) ghép vào.
+# Mỗi dòng: một thư mục hoặc mẫu tên file (glob), tính từ gốc repo.
+bo-nho
+_cu
+.circleci
+.github
+cloud/jobs
+cloud/jobs_cci
+cloud/ai/*.json
+cloud/am_thanh/*.json
+prompts
+docs/vi-du
+src/tap
+public/episodes
+tools/ac1_*
+tools/build_ac1_film.py
+tools/make_sfx_ac1*.py
+LS_puppet/prompts
+LS_puppet/build
+LS_puppet/src/timeline.json
+LS_puppet/src/shots
+LS_puppet/public/layers
+LS_puppet/public/sprites
+LS_puppet/tools/make_prompts*.py
+LS_puppet/tools/lop_plan.json
+CLAUDE.md
+docs/skill-md-v01-ed.md
+src/edit
+src/showcase
+# --- thêm 01/11: sổ đăng ký composition, cấu hình theo tập, tài liệu ---
+README.md
+HUONG-DAN.md
+docs
+cloud/HUONG-DAN.md
+tools/dung/tieu_chuan_chung.md
+src/Root.tsx
+LS_puppet/README.md
+LS_puppet/package.json
+LS_puppet/package-lock.json
+LS_puppet/kiem_huong.mjs
+LS_puppet/src/Root.tsx
+LS_puppet/src/puppet/Sample15.tsx
+LS_puppet/src/scenes/loc.ts
+LS_puppet/src/maps/Painted.tsx
+LS_puppet/tools/kho.py
+LS_puppet/tools/cues.mjs
+LS_puppet/tools/sfx.py
+LS_puppet/src/Main.tsx
+LS_puppet/src/MainP.tsx
+LS_puppet/src/Test.tsx
+LS_puppet/src/scenes/Shots.tsx
+LS_puppet/tools/chuyen.py

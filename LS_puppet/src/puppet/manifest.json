@@ -1,0 +1,690 @@
+{
+ "ANI_HORSE": [
+  1474,
+  1127
+ ],
+ "CU_FLAM_DREAD": [
+  1136,
+  1542
+ ],
+ "CU_FLAM_SHOUT": [
+  840,
+  1422
+ ],
+ "CU_HANN_SMIRK": [
+  1036,
+  1351
+ ],
+ "CU_HAST_HORN": [
+  808,
+  1520
+ ],
+ "DRV_DEFILE_FORE": [
+  2752,
+  1536
+ ],
+ "DRV_DEFILE_GND": [
+  2752,
+  1536
+ ],
+ "DRV_FOGROAD_HILLS": [
+  2752,
+  1536
+ ],
+ "DRV_HILLTOP_FARR": [
+  2752,
+  1536
+ ],
+ "DRV_LAKEDAWN_LAKE": [
+  2752,
+  1536
+ ],
+ "DRV_MUD_FAR": [
+  2752,
+  1536
+ ],
+ "DRV_MUD_FORE": [
+  2752,
+  1536
+ ],
+ "DRV_MUD_GND": [
+  2752,
+  1536
+ ],
+ "DRV_ROMANCAMP_BOT": [
+  2752,
+  1536
+ ],
+ "DRV_ROMANCAMP_TOP": [
+  2752,
+  1536
+ ],
+ "DRV_SHORE_FAR": [
+  2752,
+  1536
+ ],
+ "DRV_SHORE_FORE": [
+  2752,
+  1536
+ ],
+ "DRV_SHORE_GND": [
+  2752,
+  1536
+ ],
+ "DRV_SHORE_MID": [
+  2752,
+  1536
+ ],
+ "DRV_SLOPE_FAR": [
+  2752,
+  1536
+ ],
+ "DRV_SLOPE_GND": [
+  2752,
+  1536
+ ],
+ "DRV_TUSCANY_HILLS": [
+  2752,
+  1536
+ ],
+ "DRV_TUSCANY_ROAD": [
+  2752,
+  1536
+ ],
+ "DRV_WIDEROAD_BOT": [
+  2752,
+  1536
+ ],
+ "DRV_WIDEROAD_TOP": [
+  2752,
+  1536
+ ],
+ "FG_BRANCH": [
+  2752,
+  1536
+ ],
+ "FG_BUSH": [
+  2752,
+  1536
+ ],
+ "FG_GRASS": [
+  2752,
+  1536
+ ],
+ "FG_REEDS": [
+  2752,
+  1536
+ ],
+ "FG_ROCKS": [
+  2752,
+  1536
+ ],
+ "FG_SPEARS": [
+  2752,
+  1536
+ ],
+ "FG_STAKES": [
+  2752,
+  1536
+ ],
+ "FG_TENT": [
+  2752,
+  1536
+ ],
+ "IBT_FLAMCH_1": [
+  1774,
+  1323
+ ],
+ "IBT_FLAMPT_1": [
+  874,
+  1353
+ ],
+ "IBT_FLAMPT_2": [
+  998,
+  1354
+ ],
+ "IBT_FLAMRR_1": [
+  1604,
+  1218
+ ],
+ "IBT_FLAMSU_1": [
+  2592,
+  1398
+ ],
+ "IBT_FLAMSU_2": [
+  2710,
+  1432
+ ],
+ "IBT_GAULPT_1": [
+  3738,
+  1201
+ ],
+ "IBT_HANNAR_1": [
+  638,
+  1349
+ ],
+ "IBT_HANNAR_2": [
+  638,
+  1350
+ ],
+ "IBT_HASTAK_1": [
+  822,
+  1390
+ ],
+ "IBT_HASTDP_1": [
+  798,
+  1390
+ ],
+ "IBT_HASTHD_1": [
+  1284,
+  1390
+ ],
+ "IBT_HASTHD_2": [
+  1062,
+  1391
+ ],
+ "IBT_HASTLS_1": [
+  976,
+  1354
+ ],
+ "IBT_HASTPT_1": [
+  898,
+  1353
+ ],
+ "IBT_HASTSC_1": [
+  772,
+  1350
+ ],
+ "IBT_SIGNSC_1": [
+  874,
+  1369
+ ],
+ "KEY_DEFILE": [
+  2752,
+  1536
+ ],
+ "KEY_FOGROAD": [
+  2752,
+  1536
+ ],
+ "KEY_HILLTOP": [
+  2752,
+  1536
+ ],
+ "KEY_HILLTOWN": [
+  2752,
+  1536
+ ],
+ "KEY_LAKEDAWN": [
+  2752,
+  1536
+ ],
+ "KEY_MUD": [
+  2752,
+  1536
+ ],
+ "KEY_POVHILL": [
+  2752,
+  1536
+ ],
+ "KEY_ROMANCAMP": [
+  2752,
+  1536
+ ],
+ "KEY_SHORE": [
+  2752,
+  1536
+ ],
+ "KEY_SLOPE": [
+  2752,
+  1536
+ ],
+ "KEY_TUSCANY": [
+  2752,
+  1536
+ ],
+ "KEY_WIDEROAD": [
+  2752,
+  1536
+ ],
+ "LYR_FOGROAD_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_FOGROAD_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_FOGROAD_GROUND": [
+  2752,
+  1536
+ ],
+ "LYR_FOGROAD_NEAR": [
+  2752,
+  1536
+ ],
+ "LYR_FOGROAD_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOP_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOP_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOP_GROUND": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOP_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOWN_BROKEN": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOWN_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOWN_NEAR": [
+  2752,
+  1536
+ ],
+ "LYR_HILLTOWN_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_LAKEDAWN_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_LAKEDAWN_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_LAKEDAWN_GROUND": [
+  2752,
+  1536
+ ],
+ "LYR_LAKEDAWN_NEAR": [
+  2752,
+  1536
+ ],
+ "LYR_LAKEDAWN_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_POVHILL_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_POVHILL_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_POVHILL_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_ROMANCAMP_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_ROMANCAMP_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_ROMANCAMP_GROUND": [
+  2752,
+  1536
+ ],
+ "LYR_ROMANCAMP_NEAR": [
+  2752,
+  1536
+ ],
+ "LYR_ROMANCAMP_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_TUSCANY_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_TUSCANY_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_TUSCANY_GROUND": [
+  2752,
+  1536
+ ],
+ "LYR_TUSCANY_NEAR": [
+  2752,
+  1536
+ ],
+ "LYR_TUSCANY_SKY": [
+  2752,
+  1536
+ ],
+ "LYR_WIDEROAD_FAR": [
+  2752,
+  1536
+ ],
+ "LYR_WIDEROAD_FORE": [
+  2752,
+  1536
+ ],
+ "LYR_WIDEROAD_GROUND": [
+  2752,
+  1536
+ ],
+ "LYR_WIDEROAD_NEAR": [
+  2752,
+  1536
+ ],
+ "LYR_WIDEROAD_SKY": [
+  2752,
+  1536
+ ],
+ "OBJ_HELMTOP": [
+  880,
+  679
+ ],
+ "OBJ_MUDHELMET": [
+  1542,
+  1089
+ ],
+ "OBJ_MUDSTANDARD": [
+  738,
+  1374
+ ],
+ "PAT_CU_FLAM_SHOUT_blink": [
+  295,
+  85
+ ],
+ "PAT_CU_FLAM_SHOUT_shut": [
+  305,
+  388
+ ],
+ "PAT_CU_HANN_SMIRK_blink": [
+  128,
+  124
+ ],
+ "PAT_CU_HAST_HORN_blink": [
+  522,
+  767
+ ],
+ "PAT_SPR_FLAM_ORDER_blink": [
+  448,
+  118
+ ],
+ "PAT_SPR_FLAM_POINT_blink": [
+  188,
+  117
+ ],
+ "PAT_SPR_FLAM_POINT_shut": [
+  189,
+  268
+ ],
+ "PAT_SPR_HANN_ARMS_blink": [
+  111,
+  86
+ ],
+ "PAT_SPR_HANN_STAND_blink": [
+  112,
+  86
+ ],
+ "PAT_SPR_HAST_ASK_shut": [
+  211,
+  195
+ ],
+ "PAT_SPR_HAST_DEADPAN_talk": [
+  92,
+  76
+ ],
+ "PAT_SPR_HAST_SCARED_blink": [
+  250,
+  88
+ ],
+ "PAT_SPR_LEGF_SCARED_blink": [
+  245,
+  93
+ ],
+ "PAT_SPR_SIGN_SCARED_blink": [
+  405,
+  273
+ ],
+ "SKY_SHORE": [
+  2752,
+  1536
+ ],
+ "SPR_FLAM_CHASE": [
+  1774,
+  1324
+ ],
+ "SPR_FLAM_FALL": [
+  2698,
+  1253
+ ],
+ "SPR_FLAM_HORSE": [
+  1126,
+  1225
+ ],
+ "SPR_FLAM_HSHOCK": [
+  1716,
+  1342
+ ],
+ "SPR_FLAM_LYING": [
+  3822,
+  881
+ ],
+ "SPR_FLAM_ORDER": [
+  584,
+  1353
+ ],
+ "SPR_FLAM_POINT": [
+  978,
+  1353
+ ],
+ "SPR_FLAM_REAR": [
+  1836,
+  1398
+ ],
+ "SPR_FLAM_SITUP": [
+  2608,
+  1467
+ ],
+ "SPR_FLAM_SWORD": [
+  1598,
+  1373
+ ],
+ "SPR_FLAM_TROT": [
+  1774,
+  1323
+ ],
+ "SPR_GAUL_CHARGE": [
+  2044,
+  1295
+ ],
+ "SPR_GAUL_PPOINT": [
+  3738,
+  1181
+ ],
+ "SPR_GAUL_PRONE": [
+  3736,
+  1201
+ ],
+ "SPR_GAUL_WATCH": [
+  2976,
+  1287
+ ],
+ "SPR_HANN_ARMS": [
+  638,
+  1349
+ ],
+ "SPR_HANN_STAND": [
+  638,
+  1349
+ ],
+ "SPR_HAST_ASK": [
+  730,
+  1376
+ ],
+ "SPR_HAST_DEADPAN": [
+  812,
+  1353
+ ],
+ "SPR_HAST_FIGHT": [
+  1300,
+  1388
+ ],
+ "SPR_HAST_FRONTFT": [
+  1004,
+  1388
+ ],
+ "SPR_HAST_FRONTSC": [
+  798,
+  1390
+ ],
+ "SPR_HAST_HEAD": [
+  1250,
+  1356
+ ],
+ "SPR_HAST_LISTEN": [
+  792,
+  1353
+ ],
+ "SPR_HAST_POINT": [
+  872,
+  1353
+ ],
+ "SPR_HAST_PULL": [
+  1178,
+  1367
+ ],
+ "SPR_HAST_RUN": [
+  1574,
+  1365
+ ],
+ "SPR_HAST_SCARED": [
+  796,
+  1391
+ ],
+ "SPR_HAST_SHOVEL": [
+  916,
+  1390
+ ],
+ "SPR_HAST_SQUINT": [
+  1216,
+  1395
+ ],
+ "SPR_HAST_STAND": [
+  790,
+  1352
+ ],
+ "SPR_HAST_TINYWALK": [
+  1036,
+  1394
+ ],
+ "SPR_HAST_WALK": [
+  1038,
+  1394
+ ],
+ "SPR_IBER_CHARGE": [
+  1692,
+  1320
+ ],
+ "SPR_IBER_PRONE": [
+  2544,
+  1142
+ ],
+ "SPR_LEGA_SCARED": [
+  810,
+  1396
+ ],
+ "SPR_LEGA_STAND": [
+  680,
+  1402
+ ],
+ "SPR_LEGA_WALK": [
+  1094,
+  1356
+ ],
+ "SPR_LEGB_SCARED": [
+  808,
+  1397
+ ],
+ "SPR_LEGB_STAND": [
+  810,
+  1397
+ ],
+ "SPR_LEGB_WALK": [
+  986,
+  1394
+ ],
+ "SPR_LEGC_SCARED": [
+  810,
+  1396
+ ],
+ "SPR_LEGC_STAND": [
+  814,
+  1397
+ ],
+ "SPR_LEGC_WALK": [
+  1152,
+  1394
+ ],
+ "SPR_LEGD_SCARED": [
+  812,
+  1397
+ ],
+ "SPR_LEGD_STAND": [
+  814,
+  1397
+ ],
+ "SPR_LEGD_WALK": [
+  1200,
+  1400
+ ],
+ "SPR_LEGE_SCARED": [
+  806,
+  1395
+ ],
+ "SPR_LEGE_STAND": [
+  660,
+  1397
+ ],
+ "SPR_LEGE_WALK": [
+  1130,
+  1397
+ ],
+ "SPR_LEGF_SCARED": [
+  810,
+  1397
+ ],
+ "SPR_LEGF_STAND": [
+  806,
+  1397
+ ],
+ "SPR_LEGF_WALK": [
+  1148,
+  1392
+ ],
+ "SPR_SIGN_PULL": [
+  1306,
+  1419
+ ],
+ "SPR_SIGN_SCARED": [
+  874,
+  1369
+ ],
+ "SPR_SIGN_STAND": [
+  856,
+  1369
+ ]
+}

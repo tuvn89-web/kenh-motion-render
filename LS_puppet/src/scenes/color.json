@@ -1,0 +1,12 @@
+{
+ "FOGROAD": "saturate(0.967) brightness(0.987)",
+ "HILLTOP": "saturate(1.120) brightness(0.958) sepia(0.050)",
+ "LAKEDAWN": "saturate(1.014) brightness(1.014) sepia(0.048)",
+ "POVHILL": "saturate(1.120) brightness(0.959) sepia(0.050)",
+ "ROMANCAMP": "saturate(0.820) brightness(1.053)",
+ "WIDEROAD": "saturate(0.986) brightness(1.030)",
+ "DEFILE": "saturate(1.064) brightness(1.060) sepia(0.050)",
+ "MUD": "saturate(1.350) brightness(0.950) contrast(1.080) sepia(0.060)",
+ "SHORE": "saturate(1.300) brightness(0.970) contrast(1.060) sepia(0.050)",
+ "SLOPE": "saturate(1.068) brightness(1.060) sepia(0.050)"
+}
