@@ -50,6 +50,7 @@ jobs:
           JOB_NAME: ${{ inputs.job }}
           PARTS_IN: ${{ inputs.parts }}
         run: |
+          echo "::add-mask::$JOB_NAME"; echo "::add-mask::${JOB_NAME%.json}"
           J="_kho/cloud/jobs/$JOB_NAME"
           [ -f "$J" ] || { echo "::error::Không thấy file việc"; exit 1; }
           OUT=$(jq -r '.out' "$J"); echo "::add-mask::$OUT"
@@ -92,8 +93,10 @@ jobs:
             [[ -z "$p" || "$p" == \#* ]] && continue
             ( cd _kho && for f in $p; do cp -r --parents "$f" "$GITHUB_WORKSPACE/"; done ) 2>/dev/null || true
           done < cloud/rieng-tu.txt
+          echo "::add-mask::$JOB_NAME"; echo "::add-mask::${JOB_NAME%.json}"
           J="cloud/jobs/$JOB_NAME"
           echo "::add-mask::$(jq -r '.out' "$J")"
+          A=$(jq -r '.assets // empty' "$J"); [ -n "$A" ] && echo "::add-mask::$A"
           echo "JOB=$J" >> "$GITHUB_ENV"
           echo "PROJECT=$(jq -r '.project' "$J")" >> "$GITHUB_ENV"
           echo "ASSETS=$(jq -r '.assets // empty' "$J")" >> "$GITHUB_ENV"
@@ -162,13 +165,16 @@ jobs:
         env:
           JOB_NAME: ${{ inputs.job }}
         run: |
+          echo "::add-mask::$JOB_NAME"; echo "::add-mask::${JOB_NAME%.json}"
           J="_kho/cloud/jobs/$JOB_NAME"
           OUT=$(jq -r '.out' "$J"); echo "::add-mask::$OUT"
           echo "OUT=$OUT" >> "$GITHUB_ENV"
           # GitHub bỏ output nào chứa giá trị bị che, nên tag tính lại ở đây (cùng công thức với bước Chuẩn bị)
           echo "TAG=kq-$OUT-c${{ github.run_number }}" >> "$GITHUB_ENV"
-          echo "ASSETS=$(jq -r '.assets // empty' "$J")" >> "$GITHUB_ENV"
-          echo "AUDIO=$(jq -r '.audio // empty' "$J")" >> "$GITHUB_ENV"
+          A=$(jq -r '.assets // empty' "$J"); [ -n "$A" ] && echo "::add-mask::$A"
+          AU=$(jq -r '.audio // empty' "$J"); [ -n "$AU" ] && echo "::add-mask::$AU"
+          echo "ASSETS=$A" >> "$GITHUB_ENV"
+          echo "AUDIO=$AU" >> "$GITHUB_ENV"
       - name: Lấy file tiếng
         if: env.ASSETS != '' && env.AUDIO != ''
         uses: actions/checkout@v4
