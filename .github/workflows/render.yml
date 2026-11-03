@@ -202,7 +202,9 @@ jobs:
           ls _parts | sort | sed "s#^#file '$PWD/_parts/#; s#\$#'#" > list.txt
           ffmpeg -v error -y -f concat -safe 0 -i list.txt -c copy video.mp4
           if [ -n "$AUDIO" ]; then
-            ffmpeg -v error -y -i video.mp4 -i "_assets/$AUDIO" -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT.mp4"
+            # Tiếng đã nén AAC (.m4a/.aac) thì chép thẳng, khỏi nén lần hai; tiếng khác (flac, wav) nén AAC 192k.
+            case "$AUDIO" in *.m4a|*.aac) AC="-c:a copy" ;; *) AC="-c:a aac -b:a 192k" ;; esac
+            ffmpeg -v error -y -i video.mp4 -i "_assets/$AUDIO" -map 0:v -map 1:a -c:v copy $AC -shortest -movflags +faststart "$OUT.mp4"
           else
             ffmpeg -v error -y -i video.mp4 -c copy -movflags +faststart "$OUT.mp4"
           fi

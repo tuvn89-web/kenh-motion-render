@@ -51,3 +51,4 @@ LS_puppet/src/MainP.tsx
 LS_puppet/src/Test.tsx
 LS_puppet/src/scenes/Shots.tsx
 LS_puppet/tools/chuyen.py
+LT_may
